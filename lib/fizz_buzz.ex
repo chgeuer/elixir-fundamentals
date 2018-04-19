@@ -6,6 +6,7 @@ defmodule FizzBuzz do
   end
 
   defp player_turn(number) do
-    number # Replace with your real answer
+    # Replace with your real answer
+    number
   end
 end

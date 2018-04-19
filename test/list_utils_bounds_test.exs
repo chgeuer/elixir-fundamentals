@@ -12,10 +12,9 @@ defmodule ListUtilsBoundsTest do
 
   test "Bounds of an empty list" do
     assert {nil, nil} === ListUtils.bounds([])
-  end 
+  end
 
   test "Bounds of a one-item list" do
     assert {3, 3} === ListUtils.bounds([3])
-  end 
-  
+  end
 end

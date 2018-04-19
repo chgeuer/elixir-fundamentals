@@ -1,6 +1,8 @@
-struct_info = CreditCard.module_info(:exports)
-|> Keyword.get_values(:__struct__)
-|> length
+struct_info =
+  CreditCard.module_info(:exports)
+  |> Keyword.get_values(:__struct__)
+  |> length
+
 cond do
   struct_info > 0 ->
     defmodule CreditCardTest do
@@ -20,11 +22,12 @@ cond do
       end
 
       test "passing a card with type: \"visa\" that expires in 2021 to CreditCard.process should be ok" do
-        assert "OK!" === %CreditCard{
-          type: "visa",
-          expire_year: 2021
-        }
-        |> CreditCard.process
+        assert "OK!" ===
+                 %CreditCard{
+                   type: "visa",
+                   expire_year: 2021
+                 }
+                 |> CreditCard.process()
       end
 
       test "passing a card that expired in 2015 to CreditCard.process should fail" do
@@ -33,6 +36,7 @@ cond do
         end)
       end
     end
+
   true ->
     defmodule CreditCardTest do
       use ExUnit.Case

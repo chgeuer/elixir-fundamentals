@@ -15,12 +15,12 @@ defmodule DeckTest do
   end
 
   test "Cards should be two characters long" do
-    [card|_] = Deck.get_cards(1)
+    [card | _] = Deck.get_cards(1)
     assert String.length(card) === 2
   end
+
   test "Cards should begin with a card type, and end with a suit" do
-    [card|_] = Deck.get_cards(1)
+    [card | _] = Deck.get_cards(1)
     Regex.match?(~r/[CDSH]{1}[1-90JQKA]{1}$/, card)
   end
-
 end
