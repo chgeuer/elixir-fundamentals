@@ -1,22 +1,21 @@
-
 formatter = fn
-  _ -> "placeholder"
+  x when abs(x) >= 1_000_000 -> "#{x / 1_000_000}M"
+  x when abs(x) >= 1_000 -> "#{x / 1_000}K"
+  x -> "#{x}"
 end
-
-
 
 ##### TESTS #####
 test = fn to_run, expected, description ->
   require Logger
   result = to_run.()
+
   try do
     ^expected = result
-      Logger.info "PASSED: #{description}"
+    Logger.info("PASSED: #{description}")
   rescue
     _ in MatchError ->
-      Logger.error "FAILED: #{description}\n\tFOUND: #{result}\n\tEXPECTED: #{expected}"
+      Logger.error("FAILED: #{description}\n\tFOUND: #{result}\n\tEXPECTED: #{expected}")
   end
-
 end
 
 test.(fn -> formatter.(0) end, "0", "0 should be formatted as \"0\"")
