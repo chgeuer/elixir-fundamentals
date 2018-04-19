@@ -6,8 +6,8 @@ defmodule FizzBuzz do
   end
 
   defp player_turn(number), do: fizz_buzz(number, rem(number, 3), rem(number, 5))
-  defp fizz_buzz(_number, 0, 0), do: "FizzBuzz" 
-  defp fizz_buzz(_number, 0, _), do: "Fizz" 
-  defp fizz_buzz(_number, _, 0), do: "Buzz" 
-  defp fizz_buzz(number, _, _), do: number 
+  defp fizz_buzz(_number, 0, 0), do: "FizzBuzz"
+  defp fizz_buzz(_number, 0, _), do: "Fizz"
+  defp fizz_buzz(_number, _, 0), do: "Buzz"
+  defp fizz_buzz(number, _, _), do: number
 end
