@@ -17,4 +17,8 @@ defmodule ListUtilsBoundsTest do
   test "Bounds of a one-item list" do
     assert {3, 3} === ListUtils.bounds([3])
   end
+
+  test "Bounds of a list with a single value" do
+    assert {3, 3} === ListUtils.bounds([3, 3, 3])
+  end
 end
