@@ -1,10 +1,12 @@
 defmodule ListUtils do
   # Exercise 7
-  def reduce(list, reducer, accumulator) do
-  end
+  def reduce([], _reducer, accumulator), do: accumulator
 
-  def map(original, transform_fn, transformed \\ []) do
-  end
+  def reduce([head | tail], reducer, accumulator),
+    do: reduce(tail, reducer, reducer.(head, accumulator))
+
+  def map([], _transform_fn), do: []
+  def map([head | tail], transform_fn), do: [transform_fn.(head) | map(tail, transform_fn)]
 
   # Exercise 8
   def bounds(list), do: _bounds(list, {nil, nil})
