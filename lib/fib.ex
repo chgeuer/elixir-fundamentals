@@ -8,7 +8,9 @@ defmodule Fib do
   def reverse(n), do: reverse_impl(n - 2, reverse(2))
 
   defp reverse_impl(0, list), do: list
-  defp reverse_impl(n, list = [head1 | [head2 | _]]), do: reverse_impl(n - 1, [head1 + head2 | list])
+
+  defp reverse_impl(n, list = [head1 | [head2 | _]]),
+    do: reverse_impl(n - 1, [head1 + head2 | list])
 
   def normal(x) when x < 0, do: nil
   def normal(x), do: x |> reverse |> Enum.reverse()
